@@ -19,3 +19,11 @@ function closeModal() {
 // handle click event
 overlay.onclick = closeModal;
 closeModals.onclick = closeModal;
+
+
+//keyboard event
+document.onkeydown = (event) => {
+    if (event.code == 'Escape')
+        overlay.click();
+};
+

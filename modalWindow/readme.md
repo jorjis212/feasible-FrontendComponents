@@ -1,1 +1,1 @@
-# wanna see it live? [site👋](https://modalwindow.netlify.app/)
+# wanna see it live? [site👋](https://windowmodal.netlify.app/)
