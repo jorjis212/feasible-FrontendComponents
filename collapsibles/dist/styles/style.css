@@ -1,0 +1,98 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+.bg-pan-top {
+  animation: bg-pan-top 8s both;
+}
+
+@keyframes bg-pan-top {
+  0% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  color: #f5f2ef;
+}
+
+img {
+  width: 100%;
+}
+
+.content {
+  font-size: 1.5rem;
+  max-width: 500px;
+}
+
+.content__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2f333a;
+  padding: 1rem 3rem;
+  font-size: 3rem;
+  border-bottom: 3px solid #f7c6b3;
+}
+
+.content .chevron {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: all 0.2s ease-in;
+}
+
+.content__body {
+  background: #121215;
+  padding: 1.5rem 2rem;
+}
+
+.content__body h2 {
+  font-size: 2.5rem;
+  padding: 1rem 0;
+}
+
+.content__body p {
+  font-size: 1.7rem;
+  padding: 0.5rem 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.content__body:nth-child(1n) {
+  margin-bottom: 1rem;
+}
+
+.collapsible {
+  cursor: pointer;
+}
+
+.collapsible__content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 300ms;
+}
+
+.collapsible--expanded .collapsible__content {
+  opacity: 1;
+  max-height: 100vh;
+}
+
+.collapsible--expanded .chevron {
+  transform: rotate(90deg);
+}
