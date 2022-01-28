@@ -11,19 +11,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.bg-pan-top {
-  animation: bg-pan-top 8s both;
-}
-
-@keyframes bg-pan-top {
-  0% {
-    background-position: 50% 100%;
-  }
-  100% {
-    background-position: 50% 0%;
-  }
-}
-
 body {
   font-family: "Lato", sans-serif;
   display: grid;
@@ -36,9 +23,9 @@ img {
   width: 100%;
 }
 
-.content {
-  font-size: 1.5rem;
-  max-width: 500px;
+.container {
+  max-width: 600px;
+  max-height: 500px;
 }
 
 .content__heading {
@@ -52,14 +39,13 @@ img {
 }
 
 .content .chevron {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   transition: all 0.2s ease-in;
 }
 
 .content__body {
   background: #121215;
-  padding: 1.5rem 2rem;
 }
 
 .content__body h2 {
@@ -91,6 +77,7 @@ img {
 .collapsible--expanded .collapsible__content {
   opacity: 1;
   max-height: 100vh;
+  padding: 1.5rem 2rem;
 }
 
 .collapsible--expanded .chevron {
