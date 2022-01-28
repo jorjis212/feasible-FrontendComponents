@@ -9,18 +9,6 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
-//background animation stuff
-.bg-pan-top {
-  animation: bg-pan-top 8s both;
-}
-@keyframes bg-pan-top {
-  0% {
-    background-position: 50% 100%;
-  }
-  100% {
-    background-position: 50% 0%;
-  }
-}
 
 //colors
 $primary-color: #2f333a;
