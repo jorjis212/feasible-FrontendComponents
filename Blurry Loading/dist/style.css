@@ -10,6 +10,50 @@
 html {
   font-size: 62.5%;
 }
+
+:root {
+  --white-text: #fff;
+}
 body {
   font-family: "Mulish", sans-serif;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.background {
+  background-image: url("https://images.unsplash.com/photo-1523356393945-1f57f04f73b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+
+.loading-text.active {
+  font-size: 3.4rem;
+  color: var(--white-text);
+  font-weight: 700;
+  margin-bottom: 25vh;
+}
+
+.btn {
+  border: 0;
+  color: #444;
+  font-weight: bolder;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 2rem;
+  position: absolute;
+  text-transform: capitalize;
+  transition: transform 100ms ease-in;
+}
+
+.btn:active {
+  outline: 0;
+  transform: translateY(3px);
 }
