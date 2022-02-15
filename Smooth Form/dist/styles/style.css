@@ -22,6 +22,7 @@ textarea:focus {
 }
 
 body {
+  padding: 0 2rem;
   font-family: "Mulish", sans-serif;
   height: 100vh;
   display: grid;
