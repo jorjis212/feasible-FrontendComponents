@@ -13,148 +13,176 @@ $font-inter: "Inter", sans-serif;
 $font-weights: (
   regular: 400,
   medium: 500,
-  lightBold: 600,
+  semiBold: 600,
   bold: 700,
-  extraBold: 800,
+  bolder: 800,
 );
 
 body {
-  padding: 0 2rem;
+  padding: 2rem;
+  margin: 0 auto;
   font-family: $font-mulish;
-  height: 100vh;
-  display: grid;
-  place-items: center;
   max-width: 1140px;
   text-align: center;
   color: $color-text-grey;
   font-weight: map-get($font-weights, regular);
-  margin: 0 auto;
 }
 
 .contact {
-  display: grid;
-  .header-text {
-    font-size: 3.5rem;
+  &__title {
     font-weight: map-get($font-weights, bold);
     margin-bottom: 7rem;
   }
-  .contact__img {
-    display: none;
+  &__content {
+    display: grid;
   }
-  .contact__content {
-    .header {
-      margin-bottom: 3.5rem;
-      &__img {
-        width: 50px;
-        height: 50px;
+
+  &__content__heroimage {
+    display: none;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__content__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__content__form__header {
+    margin-bottom: 3.6rem;
+    .header__img {
+      width: 50px;
+      height: 50px;
+    }
+    .header__text {
+      font-size: clamp(2.4rem, 2.6vw, 3.2rem);
+    }
+  }
+
+  &__content__form__body {
+    .form-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      width: 100%;
+      font-size: 1.8rem;
+      position: relative;
+      margin-bottom: 1.8rem;
+      .placeholder-logo {
+        width: 1.8rem;
+        height: 1.8rem;
       }
-      &__text {
-        font-size: 2.5rem;
-        font-weight: map-get($font-weights, lightBold);
+    }
+    label[for="message"] {
+      margin-bottom: 0.5rem;
+    }
+
+    label input {
+      width: 100%;
+      padding: 1.5rem;
+      font-size: inherit;
+      border-radius: 7px;
+      border: 1.5px solid $color-form-border;
+    }
+
+    label .inputplaceholder {
+      position: absolute;
+      top: 50%;
+      left: 2rem;
+      transform: translateY(-50%);
+      opacity: 0.4;
+      font-size: inherit;
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      transition-property: top, font-size, opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease-in-out;
+      span {
+        background-color: #fff;
+        padding: 0 0.13rem;
+      }
+    }
+    label[for="message"] .inputplaceholder {
+      top: 30%;
+      font-size: inherit;
+    }
+    label textarea {
+      font-size: inherit;
+      width: 100%;
+      height: 150px;
+      padding: 2rem;
+      padding-top: 3rem;
+      resize: none;
+      font-family: inherit;
+      border-radius: 7px;
+      border: 1.5px solid $color-form-border;
+    }
+    .btn-submit {
+      @include btn;
+      width: 100%;
+      color: $color-text-grey;
+      background-color: $color-green;
+      font-weight: map-get($font-weights, semiBold);
+      padding: 1.3rem 0;
+      font-size: 2rem;
+      border-radius: 4px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      transition: all 300ms ease-in;
+      &:hover {
+        color: darken($color-text-grey, 100%);
+        background-color: darken($color-green, 10%);
+      }
+      &:focus {
+        transform: translateY(3px);
       }
     }
 
-    .form {
-      .form-wrap {
-        display: grid;
-        place-items: center;
-      }
+    label input:focus,
+    label textarea:focus {
+      transition: border 100ms, box-shadow 200ms;
+      border: 1.5px solid $color-green;
+      box-shadow: 0 0 0 3.5px lighten($color-form-border, 9%);
+    }
 
-      label {
-        width: 100%;
-        margin-bottom: 1.8rem;
-        position: relative;
-        .placeholder-logo {
-          width: 1.8rem;
-          height: 1.8rem;
-        }
-      }
-      label input {
-        width: 100%;
-        height: 100%;
-        font-size: 2rem;
-        min-width: 350px;
-        padding: 1.5rem;
-        border: 1.5px solid $color-form-border;
-        border-radius: 7px;
-        font-family: inherit;
-      }
-      label p {
-        opacity: 0.6;
-        font-size: 1.8rem;
+    label textarea:focus + .inputplaceholder,
+    label textarea:not(:placeholder-shown) + .inputplaceholder,
+    label input:focus + .inputplaceholder,
+    label input:not(:placeholder-shown) + .inputplaceholder {
+      top: 0;
+      opacity: 1;
+      font-size: 1.5rem;
+    }
+    label input:focus + .inputplaceholder > .placeholder-logo,
+    label
+      input:not(:placeholder-shown)
+      + .inputplaceholder
+      > .placeholder-logo {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .contact {
+    &__content__form {
+      &__body {
         display: flex;
-        width: 90%;
-        justify-content: space-between;
-        align-items: center;
-        pointer-events: none;
-        position: absolute;
-        top: 50%;
-        left: 2rem;
-        transform: translateY(-50%);
-        transition-property: top, font-size, opacity;
-        transition-duration: 300ms;
-        transition-timing-function: ease-in-out;
-        span {
-          background-color: #fff;
-          padding: 0 0.13rem;
+        justify-content: center;
+        .form-wrap {
+          flex-basis: 80%;
         }
-      }
-      label[for="message"] {
-        p {
-          font-size: 1.8rem;
-          top: 30%;
+        label input {
+          padding: 2rem;
         }
-      }
-      label textarea {
-        font-size: 2rem;
-        border: 1.5px solid $color-form-border;
-        border-radius: 7px;
-        min-width: 350px;
-        width: 100%;
-        height: 150px;
-        padding: 2.08rem;
-        resize: none;
-      }
-      .btn-submit {
-        width: 100%;
-        border: 0;
-        background-color: $color-green;
-        color: $color-text-grey;
-        font-weight: map-get($font-weights, bold);
-        font-family: inherit;
-        padding: 1.2rem;
-        font-size: 2.3rem;
-        border-radius: 5px;
-        cursor: pointer;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-        transition: all 300ms ease-in;
-        &:hover {
-          color: #222;
-          background-color: darken($color-green, 5%);
+        .btn-submit {
+          font-size: 2.4rem;
+          padding: 1.4rem 0;
         }
-        &:focus {
-          transform: translateY(3px);
-        }
-      }
-
-      label input:focus,
-      label textarea:focus {
-        transition: border 100ms, box-shadow 200ms;
-        border: 1px solid $color-green;
-        box-shadow: 0 0 0 3px lighten($color-form-border, 8%);
-      }
-      label textarea:focus + p,
-      label textarea:not(:placeholder-shown) + p,
-      label input:focus + p,
-      label input:not(:placeholder-shown) + p {
-        top: 0;
-        font-size: 1.5rem;
-        opacity: 1;
-      }
-      label input:focus + p > .placeholder-logo,
-      label input:not(:placeholder-shown) + p > .placeholder-logo {
-        opacity: 0;
       }
     }
   }
@@ -162,25 +190,29 @@ body {
 
 @media (min-width: 1024px) {
   .contact {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0% 10%;
-
-    .header-text {
-      grid-column: 1/-1;
-      font-size: 3.5rem;
+    &__content {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0% 5%;
     }
-    .contact__img {
+    &__content__heroimage {
       display: block;
-      align-self: center;
+      grid-column: 1/2;
+      display: block;
+      align-self: end;
       img {
-        margin-top: 22%;
-        width: 120%;
+        width: 100%;
       }
     }
-    .contact__content {
-      .form {
-        label input {
-          padding: 2rem;
+    &__content__form {
+      grid-column: 2/-1;
+      &__body {
+        display: flex;
+        justify-content: center;
+        .form-wrap {
+          flex-basis: 95%;
+        }
+        label:not(label[for="message"]) {
+          margin-bottom: 1.5rem;
         }
       }
     }

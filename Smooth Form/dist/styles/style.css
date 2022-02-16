@@ -9,6 +9,7 @@
 
 html {
   font-size: 62.5%;
+  line-height: 1.5;
 }
 
 input,
@@ -21,175 +22,222 @@ textarea:focus {
   outline: 0;
 }
 
+p {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 3.8rem;
+}
+
+h1 {
+  font-size: 4.8rem;
+}
+
 body {
-  padding: 0 2rem;
+  padding: 2rem;
+  margin: 0 auto;
   font-family: "Mulish", sans-serif;
-  height: 100vh;
-  display: grid;
-  place-items: center;
   max-width: 1140px;
   text-align: center;
   color: #2a2a2a;
   font-weight: 400;
-  margin: 0 auto;
 }
 
-.contact {
-  display: grid;
-}
-
-.contact .header-text {
-  font-size: 3.5rem;
+.contact__title {
   font-weight: 700;
   margin-bottom: 7rem;
 }
 
-.contact .contact__img {
+.contact__content {
+  display: grid;
+}
+
+.contact__content__heroimage {
   display: none;
 }
 
-.contact .contact__content .header {
-  margin-bottom: 3.5rem;
+.contact__content__heroimage img {
+  width: 100%;
 }
 
-.contact .contact__content .header__img {
+.contact__content__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__content__form__header {
+  margin-bottom: 3.6rem;
+}
+
+.contact__content__form__header .header__img {
   width: 50px;
   height: 50px;
 }
 
-.contact .contact__content .header__text {
-  font-size: 2.5rem;
-  font-weight: 600;
+.contact__content__form__header .header__text {
+  font-size: clamp(2.4rem, 2.6vw, 3.2rem);
 }
 
-.contact .contact__content .form .form-wrap {
-  display: grid;
-  place-items: center;
+.contact__content__form__body .form-wrap {
+  display: flex;
+  flex-direction: column;
 }
 
-.contact .contact__content .form label {
+.contact__content__form__body label {
   width: 100%;
-  margin-bottom: 1.8rem;
+  font-size: 1.8rem;
   position: relative;
+  margin-bottom: 1.8rem;
 }
 
-.contact .contact__content .form label .placeholder-logo {
+.contact__content__form__body label .placeholder-logo {
   width: 1.8rem;
   height: 1.8rem;
 }
 
-.contact .contact__content .form label input {
-  width: 100%;
-  height: 100%;
-  font-size: 2rem;
-  min-width: 350px;
-  padding: 1.5rem;
-  border: 1.5px solid #c1e4ff;
-  border-radius: 7px;
-  font-family: inherit;
+.contact__content__form__body label[for="message"] {
+  margin-bottom: 0.5rem;
 }
 
-.contact .contact__content .form label p {
-  opacity: 0.6;
-  font-size: 1.8rem;
-  display: flex;
-  width: 90%;
-  justify-content: space-between;
-  align-items: center;
-  pointer-events: none;
+.contact__content__form__body label input {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: inherit;
+  border-radius: 7px;
+  border: 1.5px solid #c1e4ff;
+}
+
+.contact__content__form__body label .inputplaceholder {
   position: absolute;
   top: 50%;
   left: 2rem;
   transform: translateY(-50%);
+  opacity: 0.4;
+  font-size: inherit;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
   transition-property: top, font-size, opacity;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
 }
 
-.contact .contact__content .form label p span {
+.contact__content__form__body label .inputplaceholder span {
   background-color: #fff;
   padding: 0 0.13rem;
 }
 
-.contact .contact__content .form label[for="message"] p {
-  font-size: 1.8rem;
+.contact__content__form__body label[for="message"] .inputplaceholder {
   top: 30%;
+  font-size: inherit;
 }
 
-.contact .contact__content .form label textarea {
-  font-size: 2rem;
-  border: 1.5px solid #c1e4ff;
-  border-radius: 7px;
-  min-width: 350px;
+.contact__content__form__body label textarea {
+  font-size: inherit;
   width: 100%;
   height: 150px;
-  padding: 2.08rem;
+  padding: 2rem;
+  padding-top: 3rem;
   resize: none;
+  font-family: inherit;
+  border-radius: 7px;
+  border: 1.5px solid #c1e4ff;
 }
 
-.contact .contact__content .form .btn-submit {
-  width: 100%;
+.contact__content__form__body .btn-submit {
   border: 0;
-  background-color: #99de9f;
-  color: #2a2a2a;
-  font-weight: 700;
+  padding: 1rem 2rem;
   font-family: inherit;
-  padding: 1.2rem;
-  font-size: 2.3rem;
-  border-radius: 5px;
   cursor: pointer;
+  width: 100%;
+  color: #2a2a2a;
+  background-color: #99de9f;
+  font-weight: 600;
+  padding: 1.3rem 0;
+  font-size: 2rem;
+  border-radius: 4px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transition: all 300ms ease-in;
 }
 
-.contact .contact__content .form .btn-submit:hover {
-  color: #222;
-  background-color: #86d88d;
+.contact__content__form__body .btn-submit:hover {
+  color: black;
+  background-color: #72d27b;
 }
 
-.contact .contact__content .form .btn-submit:focus {
+.contact__content__form__body .btn-submit:focus {
   transform: translateY(3px);
 }
 
-.contact .contact__content .form label input:focus,
-.contact .contact__content .form label textarea:focus {
+.contact__content__form__body label input:focus,
+.contact__content__form__body label textarea:focus {
   transition: border 100ms, box-shadow 200ms;
-  border: 1px solid #99de9f;
-  box-shadow: 0 0 0 3px #eaf6ff;
+  border: 1.5px solid #99de9f;
+  box-shadow: 0 0 0 3.5px #eff8ff;
 }
 
-.contact .contact__content .form label textarea:focus + p,
-.contact .contact__content .form label textarea:not(:placeholder-shown) + p,
-.contact .contact__content .form label input:focus + p,
-.contact .contact__content .form label input:not(:placeholder-shown) + p {
+.contact__content__form__body label textarea:focus + .inputplaceholder,
+.contact__content__form__body label textarea:not(:placeholder-shown) + .inputplaceholder,
+.contact__content__form__body label input:focus + .inputplaceholder,
+.contact__content__form__body label input:not(:placeholder-shown) + .inputplaceholder {
   top: 0;
-  font-size: 1.5rem;
   opacity: 1;
+  font-size: 1.5rem;
 }
 
-.contact .contact__content .form label input:focus + p > .placeholder-logo,
-.contact .contact__content .form label input:not(:placeholder-shown) + p > .placeholder-logo {
-  opacity: 0;
+.contact__content__form__body label input:focus + .inputplaceholder > .placeholder-logo,
+.contact__content__form__body label
+input:not(:placeholder-shown)
++ .inputplaceholder
+> .placeholder-logo {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .contact__content__form__body {
+    display: flex;
+    justify-content: center;
+  }
+  .contact__content__form__body .form-wrap {
+    flex-basis: 80%;
+  }
+  .contact__content__form__body label input {
+    padding: 2rem;
+  }
+  .contact__content__form__body .btn-submit {
+    font-size: 2.4rem;
+    padding: 1.4rem 0;
+  }
 }
 
 @media (min-width: 1024px) {
-  .contact {
+  .contact__content {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 0% 10%;
+    grid-gap: 0% 5%;
   }
-  .contact .header-text {
-    grid-column: 1/-1;
-    font-size: 3.5rem;
-  }
-  .contact .contact__img {
+  .contact__content__heroimage {
     display: block;
-    align-self: center;
+    grid-column: 1/2;
+    display: block;
+    align-self: end;
   }
-  .contact .contact__img img {
-    margin-top: 22%;
-    width: 120%;
+  .contact__content__heroimage img {
+    width: 100%;
   }
-  .contact .contact__content .form label input {
-    padding: 2rem;
+  .contact__content__form {
+    grid-column: 2/-1;
+  }
+  .contact__content__form__body {
+    display: flex;
+    justify-content: center;
+  }
+  .contact__content__form__body .form-wrap {
+    flex-basis: 95%;
+  }
+  .contact__content__form__body label:not(label[for="message"]) {
+    margin-bottom: 1.5rem;
   }
 }

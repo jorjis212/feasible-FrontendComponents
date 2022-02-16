@@ -9,57 +9,69 @@
   </head>
   <body>
     <section class="contact">
-      <header class="header-text">Contact me</header>
-      <div class="contact__img">
-        <img src="./assets/contact/contentImg.svg" alt="" />
-      </div>
+      <h2 class="contact__title">Contact me</h2>
 
-      <div class="contact__content">
-        <div class="header">
-          <img
-            class="header__img"
-            src="./assets/contact/header-img.svg"
-            alt=""
-          />
-          <figcaption class="header__text">
-            Let me achieve your leverage
-          </figcaption>
+      <figure class="contact__content">
+        <div class="contact__content__heroimage">
+          <img src="./assets/contact/contact__heroimage.svg" alt="" />
         </div>
 
-        <form class="form" method="post" name="contact-portfolio">
-          <div class="form-wrap">
-            <label for="name">
-              <input type="text" placeholder=" " required />
-              <p>
-                <span>Name</span>
-                <img
-                  class="placeholder-logo"
-                  src="./assets/contact/namePlaceholder-logo.svg"
-                  alt="logo"
-                />
-              </p>
-            </label>
-            <label for="email">
-              <input type="email" placeholder=" " required />
-              <p>
-                <span>Email</span>
-                <img
-                  class="placeholder-logo"
-                  src="./assets/contact/emailPlaceholder-logo.svg"
-                  alt="logo"
-                />
-              </p>
-            </label>
-            <label for="message">
-              <textarea placeholder=" " name="message" required></textarea>
-              <p>
-                <span>Message</span>
-              </p>
-            </label>
-            <button class="btn-submit">Submit</button>
-          </div>
-        </form>
-      </div>
+        <div class="contact__content__form">
+          <figure class="contact__content__form__header">
+            <img
+              class="header__img"
+              src="./assets/contact/header-img.svg"
+              alt=""
+            />
+            <figcaption class="header__text">
+              Let me achieve your leverage
+            </figcaption>
+          </figure>
+
+          <form
+            class="contact__content__form__body"
+            method="post"
+            name="contact-portfolio"
+          >
+            <div class="form-wrap">
+              <label>
+                <input type="text" placeholder=" " required />
+                <span class="inputplaceholder">
+                  <span>Name</span>
+                  <img
+                    class="placeholder-logo"
+                    src="./assets/contact/namePlaceholder-logo.svg"
+                    alt="logo"
+                  />
+                </span>
+              </label>
+              <label>
+                <input type="email" placeholder=" " required />
+                <span class="inputplaceholder">
+                  <span>Email</span>
+                  <img
+                    class="placeholder-logo"
+                    src="./assets/contact/emailPlaceholder-logo.svg"
+                    alt="logo"
+                  />
+                </span>
+              </label>
+              <label for="message">
+                <textarea
+                  id="message"
+                  placeholder=" "
+                  name="message"
+                  required
+                ></textarea>
+                <span class="inputplaceholder">
+                  <span>Message</span>
+                </span>
+              </label>
+              <button class="btn-submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </figure>
     </section>
   </body>
 </html>
