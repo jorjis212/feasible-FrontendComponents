@@ -17,6 +17,25 @@ $font-weights: (
   bold: 700,
   bolder: 800,
 );
+button {
+  overflow: hidden;
+  & .ripple {
+    position: absolute;
+    background-color: $color-text-grey;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: scale 500ms ease-out;
+  }
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0;
+  }
+}
 
 body {
   padding: 2rem;
@@ -127,18 +146,15 @@ body {
       color: $color-text-grey;
       background-color: $color-green;
       font-weight: map-get($font-weights, semiBold);
-      padding: 1.3rem 0;
+      padding: 1.25rem 0;
       font-size: 2rem;
       border-radius: 4px;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
         rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-      transition: all 300ms ease-in;
+      transition: background-color 200ms ease-out;
       &:hover {
         color: darken($color-text-grey, 100%);
-        background-color: darken($color-green, 10%);
-      }
-      &:focus {
-        transform: translateY(3px);
+        background-color: lighten($color-green, 5%);
       }
     }
 
@@ -178,10 +194,6 @@ body {
         }
         label input {
           padding: 2rem;
-        }
-        .btn-submit {
-          font-size: 2.4rem;
-          padding: 1.4rem 0;
         }
       }
     }

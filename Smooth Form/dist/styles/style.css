@@ -34,6 +34,27 @@ h1 {
   font-size: 4.8rem;
 }
 
+button {
+  overflow: hidden;
+}
+
+button .ripple {
+  position: absolute;
+  background-color: #2a2a2a;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 500ms ease-out;
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0;
+  }
+}
+
 body {
   padding: 2rem;
   margin: 0 auto;
@@ -156,20 +177,16 @@ body {
   color: #2a2a2a;
   background-color: #99de9f;
   font-weight: 600;
-  padding: 1.3rem 0;
+  padding: 1.25rem 0;
   font-size: 2rem;
   border-radius: 4px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  transition: all 300ms ease-in;
+  transition: background-color 200ms ease-out;
 }
 
 .contact__content__form__body .btn-submit:hover {
   color: black;
-  background-color: #72d27b;
-}
-
-.contact__content__form__body .btn-submit:focus {
-  transform: translateY(3px);
+  background-color: #ace4b1;
 }
 
 .contact__content__form__body label input:focus,
@@ -206,10 +223,6 @@ input:not(:placeholder-shown)
   }
   .contact__content__form__body label input {
     padding: 2rem;
-  }
-  .contact__content__form__body .btn-submit {
-    font-size: 2.4rem;
-    padding: 1.4rem 0;
   }
 }
 
