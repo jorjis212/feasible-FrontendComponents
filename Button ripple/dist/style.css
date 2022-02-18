@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Mulish", sans-serif;
+  font-weight: 800;
+  color: #fff;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+button {
+  overflow: hidden;
+}
+button .ripple {
+  position: absolute;
+  background-color: #5a52ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 500ms ease-out;
+}
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0;
+  }
+}
+.btn {
+  border: 0;
+  background-color: #6c63ff;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: 2.8rem;
+  color: inherit;
+  padding: 1.5rem 7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: background-color 200ms ease-out;
+}
+
+.btn:focus {
+  outline: 0;
+}
+.btn:hover {
+  background-color: #6b63ffe1;
+}
