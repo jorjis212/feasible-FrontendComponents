@@ -1,0 +1,120 @@
+@import "reset";
+//colors
+$color-light-black: #202124;
+$color-white: #fff;
+body {
+  color: $color-light-black;
+  max-width: 1140px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.faq {
+  &__title {
+    font-size: clamp(3rem, 3vw, 3.8rem);
+    margin-bottom: 10%;
+    margin-top: 5%;
+  }
+  &__content__element {
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    &__body {
+      text-align: left;
+      font-size: 1.8rem;
+      opacity: 0.8;
+    }
+  }
+
+  .faq__logo {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .faq__heading {
+    font-size: clamp(2.3rem, 2vw, 2.7rem);
+    white-space: nowrap;
+    font-weight: normal;
+  }
+}
+//responsivenes handleing
+@media (min-width: 768px) {
+  .faq {
+    &__content__element {
+      max-width: 75%;
+    }
+    .faq__logo {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+    .faq__heading {
+      font-size: 3rem;
+      white-space: nowrap;
+      font-weight: normal;
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .faq {
+    &__content__element {
+      max-width: 65%;
+    }
+  }
+}
+
+//functional class
+.expan.faq__content__element {
+  // border: 0.15px solid #202124;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.faq__content__element__body {
+  opacity: 0;
+  max-height: 0;
+  transition: all 200ms;
+}
+.expan .faq__content__element__body {
+  opacity: 0.8;
+  max-height: 100vh;
+  padding: 1rem 2rem 2rem 2rem;
+}
+
+.highlight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 100%;
+  background-color: #e5e5e5;
+  z-index: -1;
+  animation: scale-in-tr 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes scale-in-tr {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+}
