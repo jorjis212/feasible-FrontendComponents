@@ -1,6 +1,6 @@
 ![project-overview](./dist/project-snap.png)
 
-# This project is Live [here]()
+# This project is Live [here👈](https://feasiblecomponents-incrementcounter.netlify.app/)
 
 ### Script Overview :
 
