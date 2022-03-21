@@ -4,21 +4,24 @@
 const counters =
     document.querySelectorAll('.container__counter__count');
 
-counters.forEach(item => {
-    item.innerHTML = '00';
 
-    function updateCounter() {
-        const max = +item.getAttribute('data-target');
-        const temp = +item.innerHTML;
+window.onload = () => {
+    counters.forEach(item => {
+        item.innerHTML = '00';
 
-        const increment = max / 100;
+        function updateCounter() {
+            const max = +item.getAttribute('data-target');
+            const temp = +item.innerHTML;
 
-        if (temp < max) {
-            item.innerHTML = `${Math.ceil(temp + increment)}`;
-            setTimeout(updateCounter, 1);
-        } else {
-            item.innerHTML = max;
+            const increment = max / 100;
+
+            if (temp < max) {
+                item.innerHTML = `${Math.ceil(temp + increment)}`;
+                setTimeout(updateCounter, 1);
+            } else {
+                item.innerHTML = max;
+            }
         }
-    }
-    updateCounter();
-});
+        updateCounter();
+    });
+};
