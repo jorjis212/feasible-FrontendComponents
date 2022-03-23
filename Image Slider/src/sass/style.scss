@@ -1,0 +1,22 @@
+@import "./reset";
+
+//colors
+$color-md-black: #1d1d1f;
+$color-md-white: #fbfbfd;
+$color-white: #fff;
+$color-link: #0066cc;
+$color-btn-blue: #0071e3;
+//colors-dot
+$dot-purple: #b7afe6;
+$dot-blue: #23809f;
+$dot-green: #cbdec7;
+$dot-red: #b90b2d;
+$dot-white: #ebebe3;
+
+body {
+  color: $color-md-black;
+}
+
+.heading {
+  font-size: clamp(3.5rem, 3.2vw, 5rem);
+}
