@@ -14,4 +14,28 @@ html {
 body {
   font-family: "Inter", sans-serif;
   text-align: center;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 4.8rem;
+}
+h2 {
+  font-size: 3.6rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+p {
+  font-size: 1.4rem;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  &:focus {
+    outline: none;
+  }
 }
