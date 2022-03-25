@@ -44,7 +44,7 @@ button:focus {
 }
 
 body {
-  color: #1d1d1f;
+  color: #303030;
   margin: 0 auto;
   padding: 1.5rem;
 }
@@ -166,9 +166,9 @@ body {
 }
 
 .line {
-  background-color: #1d1d1f;
-  height: 1px;
-  margin: 2rem 0;
+  background-color: #303030;
+  height: 0.5px;
+  margin: 2.5rem 0;
   opacity: 0.3;
 }
 
@@ -201,7 +201,7 @@ body {
 }
 
 .active {
-  box-shadow: 0 0 0 7px #0066cc;
+  box-shadow: 0 0 0 7px #0071e3;
 }
 
 .link {
@@ -215,7 +215,9 @@ body {
 }
 
 .btn-flagship {
-  background-color: #0071e3;
+  position: relative;
+  overflow: hidden;
+  background: #0071e3;
   color: #fff;
   font-size: 2rem;
   padding: 1rem 0;
@@ -226,4 +228,21 @@ body {
 
 .btn:hover, .btn-flagship:hover {
   background-color: #007efd;
+}
+
+button .ripple {
+  position: absolute;
+  background-color: #0058b0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 450ms ease-out;
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0;
+  }
 }

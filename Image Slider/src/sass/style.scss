@@ -1,7 +1,7 @@
 @import "./reset";
 
 //colors
-$color-md-black: #1d1d1f;
+$color-md-black: #303030;
 $color-md-white: #fbfbfd;
 $color-white: #fff;
 $color-link: #0066cc;
@@ -33,10 +33,10 @@ body {
   align-items: center;
   text-align: left;
   &__mock {
-    // border: 1px solid black;
     max-width: 80%;
 
     &__img {
+      // border: 1px solid black;
       position: relative;
       &__ele {
         border-radius: 10px;
@@ -130,8 +130,8 @@ body {
 }
 .line {
   background-color: $color-md-black;
-  height: 1px;
-  margin: 2rem 0;
+  height: 0.5px;
+  margin: 2.5rem 0;
   opacity: 0.3;
 }
 
@@ -166,7 +166,7 @@ body {
 
 //functional class
 .active {
-  box-shadow: 0 0 0 7px $color-link;
+  box-shadow: 0 0 0 7px $color-btn-blue;
 }
 
 .link {
@@ -179,7 +179,9 @@ body {
   transition: background-color 0.2s;
   &-flagship {
     @extend .btn;
-    background-color: $color-btn-blue;
+    position: relative;
+    overflow: hidden;
+    background: $color-btn-blue;
     color: $color-white;
     font-size: 2rem;
     padding: 1rem 0;
@@ -189,5 +191,22 @@ body {
   }
   &:hover {
     background-color: lighten($color-btn-blue, 5%);
+  }
+}
+
+button .ripple {
+  position: absolute;
+  background-color: darken($color-btn-blue, 10%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 450ms ease-out;
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3.5);
+    opacity: 0;
   }
 }
