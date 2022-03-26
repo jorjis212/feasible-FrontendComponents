@@ -17,7 +17,7 @@
           <div class="flagship__mock__img">
             <img
               class="flagship__mock__img__ele"
-              src="./assets/images/purple/purple__4.png"
+              src="./assets/images/purple/purple__1.png"
               alt="An iphone 12 picture"
             />
             <button class="chevron chevron-left">
@@ -27,15 +27,18 @@
             <button class="chevron chevron-right">
               <img src="./assets/icons/chevron__right.svg" alt="" />
             </button>
+            <div class="loader">
+              <div class="lds-dual-ring"></div>
+            </div>
           </div>
 
           <div class="flagship__mock__colors">
             <div class="flagship__mock__colors__wrap">
-              <div class="purple active"></div>
-              <div class="blue"></div>
-              <div class="green"></div>
-              <div class="red"></div>
-              <div class="white"></div>
+              <div data-name="purple" class="color purple active"></div>
+              <div data-name="blue" class="color"></div>
+              <div data-name="green" class="color"></div>
+              <div data-name="red" class="color"></div>
+              <div data-name="white" class="color"></div>
             </div>
           </div>
         </div>
@@ -70,6 +73,7 @@
           <button class="btn-flagship">Add to Bag</button>
         </div>
       </section>
+      <script type="module" src="./script/app.js"></script>
     </main>
   </body>
 </html>

@@ -1,5 +1,5 @@
 @import "./reset";
-
+@import "./loader";
 //colors
 $color-md-black: #303030;
 $color-md-white: #fbfbfd;
@@ -136,31 +136,27 @@ body {
 }
 
 //dot colors
-.circle {
+.color {
   width: 32px;
   height: 32px;
   cursor: pointer;
   border-radius: 50%;
   outline: 5px solid $color-white;
 }
-.purple {
-  @extend .circle;
+
+[data-name="purple"] {
   background-color: $dot-purple;
 }
-.blue {
-  @extend .circle;
+[data-name="blue"] {
   background-color: $dot-blue;
 }
-.green {
-  @extend .circle;
+[data-name="green"] {
   background-color: $dot-green;
 }
-.red {
-  @extend .circle;
+[data-name="red"] {
   background-color: $dot-red;
 }
-.white {
-  @extend .circle;
+[data-name="white"] {
   background-color: $dot-white;
 }
 
