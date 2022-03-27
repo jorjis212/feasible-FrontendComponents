@@ -36,7 +36,6 @@ body {
     max-width: 80%;
 
     &__img {
-      // border: 1px solid black;
       position: relative;
       &__ele {
         border-radius: 10px;
@@ -79,35 +78,16 @@ body {
     }
   }
 }
-@media (min-width: 1024px) {
-  .heading {
-    margin: 3rem 0 8rem 0;
-  }
-  .flagship {
-    flex-direction: row;
-    &__mock {
-      flex-basis: 45%;
-      max-width: 45%;
-    }
-    &__content {
-      padding: 5rem;
-      flex-basis: 45%;
-      max-width: 45%;
-      margin-left: calc(55% - 41.66667%);
-      align-self: center;
-    }
-  }
-}
 
 //icon styling
 .chevron {
   background-color: $color-md-white;
   border-radius: 10px;
   cursor: pointer;
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   position: absolute;
-  top: calc(50% - 2rem);
+  top: calc(50% - 1.75rem);
 
   img {
     width: 100%;
@@ -121,12 +101,12 @@ body {
 .chevron-left {
   @extend .chevron;
   left: -4.5rem;
-  box-shadow: rgba(0, 0, 0, 0.12) -1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.12) -1.95px 1.95px 2px;
 }
 .chevron-right {
   @extend .chevron;
   right: -4.5rem;
-  box-shadow: rgba(0, 0, 0, 0.12) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.12) 1.95px 1.95px 2px;
 }
 .line {
   background-color: $color-md-black;
@@ -204,5 +184,32 @@ button .ripple {
   to {
     transform: translate(-50%, -50%) scale(3.5);
     opacity: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .chevron {
+    width: 4rem;
+    height: 4rem;
+    top: calc(50%-2rem);
+  }
+}
+@media (min-width: 1024px) {
+  .heading {
+    margin: 3rem 0 8rem 0;
+  }
+  .flagship {
+    flex-direction: row;
+    &__mock {
+      flex-basis: 45%;
+      max-width: 45%;
+    }
+    &__content {
+      padding: 5rem;
+      flex-basis: 45%;
+      max-width: 45%;
+      margin-left: calc(55% - 41.66667%);
+      align-self: center;
+    }
   }
 }

@@ -1,12 +1,9 @@
 import {Ripple, generateNameArr, removeClassFromArr} from './functions.js';
 
-console.log('hello')
 
 const btn = document.querySelector('.btn-flagship');
-// addButtonRipple(btn)
 
 if (window.innerWidth>=1024){
-    console.log(window.innerWidth);
     btn?.addEventListener('click',function (event:any){
         const initRipple = new Ripple(event);
         initRipple.createRipple();  
@@ -17,58 +14,84 @@ if (window.innerWidth>=1024){
 const flagshipImage:any = 
 document.querySelector('.flagship__mock__img__ele');
 
-const nextBtn = document.querySelector('.chevron-right');
-const prevBtn = document.querySelector('.chevron-left');
+const nextBtn:any = document.querySelector('.chevron-right');
+const prevBtn:any = document.querySelector('.chevron-left');
 const colors = document.querySelectorAll('.color');
 const loader = document.querySelector('.loader');
 
+const pathPrefix = './assets/images/';
+const imgFormat = '.webp';
 
-let currArray:string[] = generateNameArr('purple',3);
-let indexTrack = 0;
-let currColor = 'purple' , currPictureTitle = '';
+let currArray:string[], currColor:string;
+let trackIndex = 0;
+
+//utility functions
+function updateFlagshipImage
+(pathPrefix:string,imgFormat:string,currColor:string,trackIndex:number){
+    let imgPath = 
+    `${pathPrefix}${currColor}/${currArray[trackIndex] + imgFormat}`;
+    flagshipImage.src = imgPath;
+    
+}
+
+function prev(){
+    if (trackIndex>0){
+        trackIndex--;
+        loader?.classList.remove('hide');
+        updateFlagshipImage
+        (pathPrefix,imgFormat,currColor,trackIndex);
+    }else{
+        trackIndex = currArray.length-1;
+        loader?.classList.remove('hide');
+        updateFlagshipImage
+        (pathPrefix,imgFormat,currColor,trackIndex);
+    }
+}
+
+function next(){
+    if (trackIndex<currArray.length-1){
+        trackIndex++;
+        loader?.classList.remove('hide');
+        updateFlagshipImage
+        (pathPrefix,imgFormat,currColor,trackIndex);
+    }else{
+        trackIndex = 0
+        loader?.classList.remove('hide');
+        updateFlagshipImage
+        (pathPrefix,imgFormat,currColor,trackIndex);
+    }
+}
+
+
 
 colors.forEach(color=>{
     const colorName:any = color.getAttribute('data-name');
-
+    
     color.addEventListener('click',function(){
+        trackIndex = 0;
         removeClassFromArr('active',colors);
         loader?.classList.remove('hide');
         color.classList.add('active');
         currArray = generateNameArr(colorName,3);
         currColor = colorName;
-        flagshipImage.src = `./assets/images/${colorName}/${currArray[0]}.png`;
-        console.log(currArray);
-        indexTrack = 0;
+        updateFlagshipImage(pathPrefix,imgFormat,currColor,trackIndex);
     })
 })
 
-console.log(generateNameArr('red',3));
-
-nextBtn?.addEventListener('click',function(){
-    if (indexTrack<currArray.length-1){
-        indexTrack++;
-        loader?.classList.remove('hide');
-        const pictureTitle = currArray[indexTrack];
-        let pictureColor = pictureTitle.split('__')[0];
-        flagshipImage.src = 
-        `./assets/images/${pictureColor}/${currArray[indexTrack]}.png`;
-        console.log('object',pictureColor);
-    }
-})
-
-prevBtn?.addEventListener('click',function(){
-    if (indexTrack>0){
-        indexTrack--;
-        loader?.classList.remove('hide');
-        const pictureTitle = currArray[indexTrack];
-        let pictureColor = pictureTitle.split('__')[0];
-        flagshipImage.src = 
-        `./assets/images/${pictureColor}/${currArray[indexTrack]}.png`;
-    }
-})
 
 
-flagshipImage?.addEventListener('load',function(){
+nextBtn.onclick = next;
+prevBtn.onclick = prev;
+
+
+
+window.onload = function(){
     loader?.classList.add('hide');
-    console.log(loader);
-})
+    flagshipImage.onload = function(){
+        loader?.classList.add('hide');
+    }
+}
+
+const defaultColor:any = 
+document.querySelector("[data-name='purple']");
+defaultColor?.click();

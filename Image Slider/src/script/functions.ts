@@ -48,3 +48,4 @@ export function removeClassFromArr(className:string,arr:any):void{
         }
     }
 }
+

@@ -159,34 +159,14 @@ body {
   margin-top: -0.2rem;
 }
 
-@media (min-width: 1024px) {
-  .heading {
-    margin: 3rem 0 8rem 0;
-  }
-  .flagship {
-    flex-direction: row;
-  }
-  .flagship__mock {
-    flex-basis: 45%;
-    max-width: 45%;
-  }
-  .flagship__content {
-    padding: 5rem;
-    flex-basis: 45%;
-    max-width: 45%;
-    margin-left: calc(55% - 41.66667%);
-    align-self: center;
-  }
-}
-
 .chevron, .chevron-left, .chevron-right {
   background-color: #fbfbfd;
   border-radius: 10px;
   cursor: pointer;
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   position: absolute;
-  top: calc(50% - 2rem);
+  top: calc(50% - 1.75rem);
 }
 
 .chevron img, .chevron-left img, .chevron-right img {
@@ -201,12 +181,12 @@ body {
 
 .chevron-left {
   left: -4.5rem;
-  box-shadow: rgba(0, 0, 0, 0.12) -1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.12) -1.95px 1.95px 2px;
 }
 
 .chevron-right {
   right: -4.5rem;
-  box-shadow: rgba(0, 0, 0, 0.12) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(0, 0, 0, 0.12) 1.95px 1.95px 2px;
 }
 
 .line {
@@ -288,5 +268,33 @@ button .ripple {
   to {
     transform: translate(-50%, -50%) scale(3.5);
     opacity: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .chevron, .chevron-left, .chevron-right {
+    width: 4rem;
+    height: 4rem;
+    top: calc(50%-2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading {
+    margin: 3rem 0 8rem 0;
+  }
+  .flagship {
+    flex-direction: row;
+  }
+  .flagship__mock {
+    flex-basis: 45%;
+    max-width: 45%;
+  }
+  .flagship__content {
+    padding: 5rem;
+    flex-basis: 45%;
+    max-width: 45%;
+    margin-left: calc(55% - 41.66667%);
+    align-self: center;
   }
 }
