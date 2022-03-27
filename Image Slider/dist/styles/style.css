@@ -15,6 +15,7 @@ body {
   font-family: "Inter", sans-serif;
   text-align: center;
   line-height: 1.4;
+  -webkit-appearance: none;
 }
 
 h1 {
