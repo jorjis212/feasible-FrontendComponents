@@ -39,4 +39,8 @@ button {
   &:focus {
     outline: none;
   }
+  &:active {
+    outline: none;
+    border: 0;
+  }
 }
