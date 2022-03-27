@@ -198,11 +198,12 @@ body {
 }
 
 .color {
+  box-sizing: content-box;
   width: 32px;
   height: 32px;
   cursor: pointer;
   border-radius: 50%;
-  outline: 5px solid #fff;
+  border: 5px solid #fff;
 }
 
 [data-name="purple"] {
@@ -226,7 +227,7 @@ body {
 }
 
 .active {
-  box-shadow: 0 0 0 7px #0071e3;
+  box-shadow: 0 0 0 2.5px #0071e3;
 }
 
 .link {
