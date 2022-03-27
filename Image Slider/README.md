@@ -12,8 +12,6 @@
 
 ## **Language & Pre-processor :**
 
-<br>
-
 - ### Language :
   ```bash
   HTML5, CSS3, JS(es6)
@@ -22,7 +20,6 @@
   ```bash
   SASS, TypeScript
   ```
-
 <br>
 
 ## **Tools & Technology :**
