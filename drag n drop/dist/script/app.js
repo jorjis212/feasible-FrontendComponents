@@ -17,7 +17,7 @@ let dragStartIndex;
 function swapItems(from, to) {
     const fromNode = document.querySelector(`[data-index="${from}"] .draggable-list__item__name`);
     const toNode = document.querySelector(`[data-index="${to}"] .draggable-list__item__name`);
-    let tempArr = [fromNode === null || fromNode === void 0 ? void 0 : fromNode.innerHTML, toNode === null || toNode === void 0 ? void 0 : toNode.innerHTML];
+    const tempArr = [fromNode === null || fromNode === void 0 ? void 0 : fromNode.innerHTML, toNode === null || toNode === void 0 ? void 0 : toNode.innerHTML];
     fromNode === null || fromNode === void 0 ? void 0 : fromNode.innerHTML = tempArr[1];
     toNode === null || toNode === void 0 ? void 0 : toNode.innerHTML = tempArr[0];
 }
@@ -28,7 +28,6 @@ function createList() {
         .map(a => a.name)
         .forEach((name, index) => {
         const createItem = document.createElement('li');
-        createItem.setAttribute('data-index', `${index}`);
         createItem.setAttribute('data-index', `${index}`);
         createItem.innerHTML = `
         <span class="number">${index + 1}</span>
@@ -69,7 +68,7 @@ function addEventListeners() {
     });
 }
 createList();
-btnSort === null || btnSort === void 0 ? void 0 : btnSort.addEventListener('click', function () {
+btnSort === null || btnSort === void 0 ? void 0 : btnSort.addEventListener('click', function (e) {
     const userChoice = document.querySelectorAll('.draggable-list__item__name');
     userChoice.forEach((value, index) => {
         if (value.innerHTML === topCompanies[index]) {
@@ -90,4 +89,5 @@ btnSort === null || btnSort === void 0 ? void 0 : btnSort.addEventListener('clic
             ele.innerHTML = topCompanies[index];
         });
     }, 4000);
+    e.stopPropagation();
 });

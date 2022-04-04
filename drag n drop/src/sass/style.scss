@@ -67,6 +67,7 @@ body{
         display: grid;
         place-items: center;
         font-weight: 600;
+        user-select: none;
     }
 }
 
@@ -152,9 +153,9 @@ body{
 //functional class
 
 .wrong{
-    color:red;
+    color: #ee5253;
 }
 
 .right{
-    color: green;
+    color: #05c46b;
 }

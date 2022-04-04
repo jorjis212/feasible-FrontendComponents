@@ -3,6 +3,7 @@ const draggableList =
     document.querySelector('.draggable-list');
 
 const btnSort = document.querySelector('.btn-sort');
+
 const topCompanies: string[] = [
     'Apple',
     'Microsoft',
@@ -18,15 +19,17 @@ const topCompanies: string[] = [
 
 let dragStartIndex:number;
 
-function swapItems(from:number,to:number):void{
+function swapItems(from:number,to:number):void {
     const fromNode =
-     document.querySelector(`[data-index="${from}"] .draggable-list__item__name`) ;
+     document.querySelector(`[data-index="${from}"] .draggable-list__item__name`);
     const toNode =
      document.querySelector(`[data-index="${to}"] .draggable-list__item__name`) ;
-     let tempArr = [fromNode?.innerHTML, toNode?.innerHTML];
+     const tempArr = [fromNode?.innerHTML, toNode?.innerHTML];
      fromNode?.innerHTML = tempArr[1];
      toNode?.innerHTML = tempArr[0];
 }
+
+
 function createList(): void {
     [...topCompanies]
         .map(a => ({ name: a, value: Math.random() }))
@@ -34,7 +37,6 @@ function createList(): void {
         .map(a => a.name)
         .forEach((name, index) => {
             const createItem = document.createElement('li');
-            createItem.setAttribute('data-index', `${index}`);
             createItem.setAttribute('data-index', `${index}`);
             createItem.innerHTML = `
         <span class="number">${index + 1}</span>
@@ -90,7 +92,7 @@ createList();
 
 
 
-btnSort?.addEventListener('click',function(){
+btnSort?.addEventListener('click',function(e:any){
     const userChoice = 
     document.querySelectorAll('.draggable-list__item__name');
     userChoice.forEach((value,index)=>{
@@ -114,4 +116,6 @@ btnSort?.addEventListener('click',function(){
             ele.innerHTML = topCompanies[index];
         })
     },4000);
-}) 
+
+    e.stopPropagation();
+}) ;
